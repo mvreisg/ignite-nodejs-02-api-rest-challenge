@@ -11,6 +11,6 @@ app.register(mealPlugin, { prefix: '/meal' })
 
 app
   .listen({
-    port: 10000,
+    port: 3333,
   })
   .then(() => console.log('HTTP Server Running!'))
