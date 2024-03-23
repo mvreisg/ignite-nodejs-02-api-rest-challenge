@@ -115,8 +115,6 @@ export async function userPlugin(app: FastifyInstance) {
         }
       })
 
-      console.log(highStreak)
-
       return reply.status(200).send({ streak: highStreak })
     },
   )

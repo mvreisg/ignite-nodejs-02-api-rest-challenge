@@ -16,7 +16,7 @@ export async function mealPlugin(app: FastifyInstance) {
       .where({ id, user_id: userId })
       .select('*')
       .first()
-    return response
+    return { meal: response }
   })
 
   app.get('/:userId', async (request: FastifyRequest) => {
@@ -27,7 +27,7 @@ export async function mealPlugin(app: FastifyInstance) {
     const { userId } = paramsSchema.parse(request.params)
 
     const response = await knex('meal').where({ user_id: userId }).select('*')
-    return response
+    return { meals: response }
   })
 
   app.post('/', async (request: FastifyRequest, reply: FastifyReply) => {
